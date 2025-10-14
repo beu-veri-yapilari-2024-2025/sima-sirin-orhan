@@ -1,0 +1,106 @@
+Matris Çarpımı
+
+Random rastgele = new Random();
+int satır = 3;
+int sütun = 3;
+int[,] matris1 = new int[satır, sütun];
+
+for (int i = 0; i < satır; i++)
+{
+    for (int j = 0; j < sütun; j++)
+    {
+        matris1[i, j] = rastgele.Next(0, 101);
+    }
+}
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 3; j++)
+    {
+        Console.Write(matris1[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
+int[,] matris2 = new int[satır, sütun];
+
+for (int i = 0; i < satır; i++)
+{
+    for (int j = 0; j < sütun; j++)
+    {
+        matris2[i, j] = rastgele.Next(0, 101);
+    }
+}
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 3; j++)
+    {
+        Console.Write(matris2[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
+int[,] çarpma = new int[satır, sütun];
+for (int i = 0; i < 3; i++)
+{
+    for (int j = 0; j < 3; j++)
+    {
+        çarpma[i, j] = matris1[i, j] * matris2[i, j];
+
+        Console.Write(çarpma[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+
+
+
+Notasyon hesaplaması= for içinde for kullanıldığı için notasyonu O(n^2).
+T(N)=9n^2+17n+10+7logn
+
+
+
+
+Dizideki Sayıların Toplamı
+int[] sayılar = { 1, 8, 10, 12, 15, 16, 18, 20, 45, 55, 66, 77, 86, 90 };
+int toplam = 0;
+for (int i = 0; i < sayılar.Length; i++)
+{
+    toplam += sayılar[i];
+}
+Console.WriteLine(toplam);
+
+Notasyon hesaplaması= Sadece bir for döngüsü olduğu için O(n).
+T(N)=3n+4
+
+
+
+
+
+
+
+İkili Arma
+int[] sayılar = { 1, 8, 10, 12, 15, 16, 18, 20, 45, 55, 66, 77, 86, 90 };
+int aranan = 20;
+int sol = 0;
+int sağ = sayılar.Length - 1;
+while (sol <= sağ)
+{
+    int orta = (sol + sağ) / 2;
+
+    if (sayılar[orta] == aranan)
+    {
+        Console.WriteLine("sayının indeksi bulundu :" + orta);
+        break;
+    }
+
+    else if (sayılar[orta] < aranan)
+        sol = orta + 1;
+    else
+        sağ = orta - 1;
+
+}
+
+Notasyon hesaplaması= O(logn)
+T(N)=3logn+5
+
+
+
